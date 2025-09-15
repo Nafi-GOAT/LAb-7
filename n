@@ -1,7 +1,37 @@
 #include <iostream>
 using namespace std;
 
-void revereseArray(string *strin){
+void reverseArray(string *strin){
  for (int i =0; i<5/2; i++){
  string a = *(strin + i);
- *(strin + i) + *(strin +(4-i));
+ *(strin + i) = *(strin +(4-i));
+   *(strin + (4 - i)) = a;
+  }
+}
+
+void displayArray(string *strin){
+  for (int i=0 ; i<=4 ; i++){
+    cout << *(strin+i);
+  }
+  cout << endl;
+}
+
+int main(){
+
+  string *strin = new string[5];
+    
+    * (strin+0) = "Janet ";
+    * (strin+1) = "Jeffe ";
+    * (strin+2) = "Jin ";
+    * (strin+3) = "Joe ";
+    * (strin+4) = "Junio ";
+
+  cout << "Original array: ";
+  displayArray(strin);
+  reverseArray(strin);
+  cout << "Reversed Array: ";
+  displayArray(strin);
+
+  delete[] strin;
+  return 0;
+}
